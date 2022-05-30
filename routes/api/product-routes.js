@@ -106,16 +106,16 @@ router.delete('/:id', (req, res) => {
   Product.destroy({
     where: {
       id: req.params.id
-    }.then(dbProductData => {
+    }
+  }).then(dbProductData => {
       if (!dbProductData) {
         res.status(404).json({ message: 'Product not found'})
         return
       }
       res.json(dbProductData)
-    }).catch(err => {
+  }).catch(err => {
       console.log(err);
       res.status(500).json(err)
-    })
   })
 });
 
